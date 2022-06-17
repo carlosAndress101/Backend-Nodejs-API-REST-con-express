@@ -43,7 +43,7 @@ router.get('/:id', (req, res) => {
 
 router.post('/', (req, res)=>{
   const body = req.body;
-  res.json({
+  res.status(201).json({
     message:"creacion de producto",
     data:body
   })
@@ -52,7 +52,7 @@ router.post('/', (req, res)=>{
 router.patch('/:id', (req, res)=>{
   const {id} = req.params;
   const body = req.body;
-  res.json({
+  res.status(200).json({
     message:"update",
     data:body,
     id
@@ -61,7 +61,7 @@ router.patch('/:id', (req, res)=>{
 
 router.delete('/:id', (req, res)=>{
   const {id} = req.params;
-  res.json({
+  res.status(101).json({
     message:"deleted",
     id
   })
