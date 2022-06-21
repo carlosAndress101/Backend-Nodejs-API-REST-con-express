@@ -29,13 +29,18 @@ router.get(
   }
 );
 
-router.post('/', async (req, res) => {
+router.post('/', 
+validatorHandler(createProductSchemas, 'body'),
+async (req, res) => {
   const body = req.body;
   const newProduct = await service.create(body);
   res.status(201).json(newProduct);
 });
 
-router.patch('/:id', async (req, res, next) => {
+router.patch('/:id', 
+validatorHandler(getProductSchemas, 'params'),
+validatorHandler(updateProductSchemas, 'body'),
+async (req, res, next) => {
   try {
     const { id } = req.params;
     const body = req.body;
