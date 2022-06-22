@@ -2,6 +2,7 @@ version: '3.3'
 
 services:
   postgres:
+
     image: postgres:latest
     environment:
       - POSTGRES_DB=my_store
