@@ -2,8 +2,8 @@ version: '3.3'
 
 services:
   postgres:
-
-    image: postgres:latest
+    image: postgres:13
+    restart: always
     environment:
       - POSTGRES_DB=my_store
       - POSTGRES_USER=carlos
@@ -12,3 +12,11 @@ services:
       - 5432:5432
     volumes:
       - ./postgres_data:/var/lib/postgresql/data
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: carlos@mail.com
+      PGADMIN_DEFAULT_PASSWORD: root
+    ports:
+      - 5050:80
