@@ -1,11 +1,14 @@
 //const express = require('express');
 const faker = require('faker');
 const boom = require('@hapi/boom');
+const pool = require('../libs/postgres.pool');
 
 class ProductsService {
   constructor() {
     this.products = [];
     this.generate();
+    this.pool = pool;
+    this.pool.on('error', (error) => console.error(error));
   }
 
   async generate() {
@@ -32,7 +35,9 @@ class ProductsService {
   }
 
   async find() {
-    return this.products;
+    const query = 'SELECT * FROM task'
+    const res = await this.pool.query(query);
+    return res.rows;
   }
 
   async findOne(id) {

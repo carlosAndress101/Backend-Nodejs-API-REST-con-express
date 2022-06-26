@@ -61,10 +61,18 @@ router.patch(
   }
 );
 
-router.delete('/:id', async (req, res) => {
-    const { id } = req.params;
-    const user = await service.delete(id);
-    res.status(200).json(user);
-});
+router.delete(
+  '/:id',
+  validatorHandler(getUserSchema, 'params'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      await service.delete(id);
+      res.status(201).json({ id });
+    } catch (error) {
+      next(error);
+    }
+  }
+);
 
 module.exports = router;

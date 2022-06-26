@@ -1,4 +1,4 @@
-class Categories{
+class CategorieService{
 
     
     create(){
@@ -22,4 +22,4 @@ class Categories{
     }
     
 }
-module.exports = Categories;
+module.exports = CategorieService;
