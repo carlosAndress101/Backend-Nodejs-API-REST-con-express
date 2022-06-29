@@ -1,11 +1,13 @@
+const { models } = require('../libs/sequelize');
 class OrderService {
     
     create(){
 
     }
 
-    find(){
-        
+    async find(){
+        const res = await models.Order.findAll();
+        return res;
     }
 
     findOne(){

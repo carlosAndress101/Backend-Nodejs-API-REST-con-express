@@ -1,11 +1,13 @@
+const { models } = require('../libs/sequelize');
 class CategorieService{
 
     create(){
 
     }
 
-    find(){
-        
+    async find(){
+        const res = await models.Categories.findAll();
+        return res;
     }
 
     findOne(){
