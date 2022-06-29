@@ -1,3 +1,4 @@
+//----------importaciones----------
 const express = require('express')
 const ProductsService = require('../services/products.service')
 const validatorHandler = require('../middlewares/validator.handler')
@@ -9,7 +10,7 @@ const {
 const router = express.Router()
 const service = new ProductsService()
 
-//enpoint de productos.
+//---------------Enpoint de productos---------------
 router.get('/', async (req, res) => {
   const products = await service.find()
   res.json(products)
