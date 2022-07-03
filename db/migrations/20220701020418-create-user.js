@@ -4,7 +4,7 @@ module.exports = {
   async up (queryInterface) {
     await queryInterface.createTable(USER_TABLE, userSchema);
   },
-
+  
   async down (queryInterface) {
     await queryInterface.drop(USER_TABLE);
   }
