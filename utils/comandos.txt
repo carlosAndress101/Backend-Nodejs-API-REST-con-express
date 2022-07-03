@@ -1,5 +1,5 @@
 -crear una migracion lo podemos hacer con el siguiente comando:
-npm run migrations:generate create-products
+npm run migrations:generate create-users
 
 -para correr las migraciones lo hacemos con el siguiente comando:
 npm run migrations:run
@@ -13,3 +13,5 @@ docker-compose donw
 
 -para saber el #IP de nuestro contenedor lo hacemos con el siguiente comando:
 docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+
+
