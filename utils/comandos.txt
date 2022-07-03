@@ -1,0 +1,15 @@
+-crear una migracion lo podemos hacer con el siguiente comando:
+npm run migrations:generate create-products
+
+-para correr las migraciones lo hacemos con el siguiente comando:
+npm run migrations:run
+
+-para levantar una imagen en docker lo hacemos con el siguiente comando:
+docker-compose up -d postgres
+docker-compose up -d pgadmin
+
+-para bajar la imagen en docker lo hacemos con el dsiguiente comando:
+docker-compose donw
+
+-para saber el #IP de nuestro contenedor lo hacemos con el siguiente comando:
+docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
