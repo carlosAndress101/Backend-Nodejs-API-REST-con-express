@@ -3,17 +3,17 @@ const boom = require('@hapi/boom');
 class CategorieService{
 
     async create(data){
-        const newCategory = await models.Categories.create(data);
+        const newCategory = await models.categories.create(data);
         return newCategory;
     }
 
     async find(){
-        const res = await models.Categories.findAll();
+        const res = await models.categories.findAll();
         return res;
     }
 
     async findOne(id){
-        const category = await models.Categories.findByPk(id);
+        const category = await models.categories.findByPk(id);
         if(!category){
             throw boom.notFound('Category not found');
         }
@@ -31,6 +31,6 @@ class CategorieService{
         await category.destroy();
         return { id };
     }
-    
+
 }
 module.exports = CategorieService;
