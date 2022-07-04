@@ -18,6 +18,11 @@ const userSchema = {
     allowNull: false,
     type: DataTypes.STRING,
   },
+  role: {
+    allowNull: false,
+    type: DataTypes.STRING,
+    defaultValue: 'customer'
+  },
   createAt: {
     allowNull: false,
     type: DataTypes.DATE,
@@ -35,7 +40,7 @@ class User extends Model {
     return {
       sequelize,
       tablaName: USER_TABLE,
-      modelName: 'User',
+      modelName: 'users',
       timestamps: false,
     }
   }

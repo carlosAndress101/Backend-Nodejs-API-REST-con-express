@@ -38,7 +38,7 @@ class Products extends Model {
         return {
             sequelize,
             tableName: PRODUCTS_TABLE,
-            modelName: 'Products',
+            modelName: 'products',
             timestamps: false,
         }
     }
