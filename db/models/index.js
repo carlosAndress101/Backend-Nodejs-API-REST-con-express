@@ -8,6 +8,9 @@ function setupModels(sequelize){
     Products.init(productSchema, Products.config(sequelize));
     Categories.init(categorieSchema, Categories.config(sequelize));
     Customer.init(customerSchema, Customer.config(sequelize));
+
+    Customer.associate(sequelize.models);
+    User.associate(sequelize.models);
 }
 
 module.exports = { setupModels };
