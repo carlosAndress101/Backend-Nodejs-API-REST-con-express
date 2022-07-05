@@ -19,7 +19,8 @@ class CustomerService {
   }
 
   async create(data) {
-    return data;
+    const newCustomer = await models.customer.create(data);
+    return newCustomer;
   }
 
   async update(id, changes) {
