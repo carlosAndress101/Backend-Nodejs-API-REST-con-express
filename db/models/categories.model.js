@@ -26,17 +26,22 @@ const categorieSchema = {
 }
 
 class Categories extends Model {
-    static associate() {
-        //associate
+
+  static associate(models) {
+    this.hasMany(models.Products, {
+      as: 'products',
+      foreignKey: 'categoryId'
+    });
+  }
+
+  static config(sequelize) {
+    return {
+      sequelize,
+      tableName: CATEGORIES_TABLE,
+      modelName: 'Category',
+      timestamps: false
     }
-    static config(sequelize) {
-        return {
-            sequelize,
-            tableName: CATEGORIES_TABLE,
-            modelName: 'categories',
-            timestamps: false,
-        }
-    }
+  }
 }
 
 module.exports = { CATEGORIES_TABLE, categorieSchema, Categories };
