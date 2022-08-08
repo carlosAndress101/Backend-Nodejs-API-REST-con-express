@@ -6,7 +6,7 @@ module.exports = {
   },
 
   async down (queryInterface) {
-    await queryInterface.removeColumn(USER_TABLE, 'role');
+    await queryInterface.dropTable(USER_TABLE, 'role');
 
   }
 };
