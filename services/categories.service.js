@@ -1,23 +1,25 @@
-const { models } = require('../libs/sequelize');
+const { models } = require('./../libs/sequelize')
 const boom = require('@hapi/boom');
 class CategorieService{
 
     async create(data){
-        const newCategory = await models.categories.create(data);
+        const newCategory = await models.Category.create(data);
         return newCategory;
     }
 
     async find(){
-        const res = await models.categories.findAll();
+        const res = await models.Category.findAll();
         return res;
     }
 
     async findOne(id){
-        const category = await models.categories.findByPk(id);
-        if(!category){
+        const categoria = await models.Category.findByPk(id,{
+          include: ['products']
+        });
+        if(!categoria){
             throw boom.notFound('Category not found');
         }
-        return category;
+        return categoria;
     }
 
     async update(id, changes){
