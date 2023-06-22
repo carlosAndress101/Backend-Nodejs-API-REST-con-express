@@ -17,3 +17,6 @@ docker inspect -f '{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}
 -Relaciones 1 a 1:
 un cliente no puede tener muchos usuarios.
 
+-Estructura de base de dato url
+const URI = `postgres://${USER}:${PASSWORD}@${config.dbHost}:${config.dbPort}/${config.dbName}`;
+
